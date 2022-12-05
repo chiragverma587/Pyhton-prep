@@ -23,7 +23,7 @@
 
           return -1
           
-### 3.  [Find the number occuring odd number of times](https://practice.geeksforgeeks.org/problems/alone-in-couple5507/1)
+### 3.  [Party of couples](https://practice.geeksforgeeks.org/problems/alone-in-couple5507/1)
     #User function Template for python3
 
     class Solution:
@@ -39,7 +39,7 @@
             for key in m:
                 if m[key]==1:
                     return key        
-### 5. [Rotate an array](https://practice.geeksforgeeks.org/problems/reversal-algorithm5340/1?utm_source=gfg&utm_medium=article_practice_tab&utm_campaign=article_practice_tab)
+### 4. [Rotate an array](https://practice.geeksforgeeks.org/problems/reversal-algorithm5340/1?utm_source=gfg&utm_medium=article_practice_tab&utm_campaign=article_practice_tab)
     class Solution:
     
     def reverseArray(self,arr,start,end):
@@ -60,7 +60,7 @@
         ob.reverseArray(arr,d,n-1)
         ob.reverseArray(arr,0,n-1)
 
-### 6. [Leaders in an array](https://practice.geeksforgeeks.org/problems/leaders-in-an-array-1587115620/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article)
+### 5. [Leaders in an array](https://practice.geeksforgeeks.org/problems/leaders-in-an-array-1587115620/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article)
     
 class Solution:
     #Back-end complete function Template for Python 3
@@ -79,9 +79,78 @@ class Solution:
                 res.insert(0,arr[i])
         return res
       
-###                 
+### 6. [Product array](https://practice.geeksforgeeks.org/problems/product-array-puzzle4525/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article)
+    class Solution:
+        def productExceptSelf(self, nums, n):
+            #code here
+            p=[]
+            for i in range(n):
+                prod=1
+                for j in range(n):
+                    if j==i:
+                        continue
+                    prod=prod*nums[j]
+                p.append(prod)
+            return p
+            
+### 7. [Find 2 repeating elements](https://practice.geeksforgeeks.org/problems/two-repeated-elements-1587115621/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article)
+    Method 1:
+    def twoRepeated(self, arr , N):
+        Your code here
+         m={}
+         res=[]
+         for i in range(N):
+             if arr[i] in m:
+                 m[arr[i]]+=1
+             else:
+                 m[arr[i]]=1
+        
+         for key in m:
+             if m[key]==2:
+                 res.append(key)
+         return res
+    
+    Method 2: 
+    def twoRepeated(self, arr , N):
+        count=[0]*N
+        res=[]
+        for i in range(N):
+            if count[arr[i]]==1 :
+                res.append(arr[i])
+            else:
+                count[arr[i]]+=1
                 
                 
+        return res
+        
+### 8. [Missing number in an array](https://practice.geeksforgeeks.org/problems/missing-number-in-array1416/1?utm_source=gfg&utm_medium=article_practice_tab&utm_campaign=article_practice_tab)
+    Method 1:
+    class Solution:
+    def MissingNumber(self,arr,n):
+        total=n*(n+1)/2
+            sumofarr=sum(arr)
+            return int(total-sumofarr)
+    
+    Method 2:
+    class Solution:
+    def MissingNumber(self,arr,n):
+        # code 
+        size=n-1
+        arr.sort()
+        #dealing with single element
+        if size==1:
+            if arr[0]!=1:
+                return 1
+            else:
+                return n
+        # dealing with multiple element
+        if arr[0]!=1:
+            return 1
+        else:
+            for i in range(size-1):
+                if(arr[i+1]-arr[i]>1):
+                    return arr[i]+1
+            return n
                 
                 
                 
