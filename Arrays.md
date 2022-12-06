@@ -151,6 +151,61 @@ class Solution:
                 if(arr[i+1]-arr[i]>1):
                     return arr[i]+1
             return n
-                
-                
-                
+                   
+### 9. [Trapping rainwater](https://practice.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article)
+    class Solution:
+    def trappingWater(self, arr,n):
+        #Code here
+        leftmax=0
+        rightmax=0
+        ans=0
+        left=0
+        right=n-1
+        while(left<right):
+            if (arr[left]<arr[right]):
+                if (leftmax>arr[left]):
+                    ans +=(leftmax-arr[left])
+                    left+=1
+                else:
+                    leftmax=arr[left]
+                    left+=1
+            else:
+                if rightmax>arr[right]:
+                    ans=ans + rightmax-arr[right]
+                    right-=1
+                else:
+                    rightmax=arr[right]
+                    right-=1
+        return ans
+
+
+### 10. [Merge arrays](https://practice.geeksforgeeks.org/problems/merge-two-sorted-arrays-1587115620/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article)
+    class Solution:
+    
+    #Function to merge the arrays.
+    def merge(self,arr1,arr2,n,m):
+        #code here
+        arr3 = arr1+arr2
+        arr3.sort()
+        for i in range(len(arr3)):
+            if i<n:
+                arr1[i]=arr3[i]
+            else:
+                arr2[i-n]=arr3[i]
+        return arr3  
+
+### 11. [Nuts and Bolts](https://practice.geeksforgeeks.org/problems/nuts-and-bolts-problem0431/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article)
+    class Solution:
+
+	def matchPairs(self,nuts, bolts, n):
+		# code here
+		for i in range(n):
+		    for j in range(i,n):
+		        if nuts[i]==bolts[j]:
+		            temp=bolts[j]
+		            bolts[j]=bolts[i]
+		            bolts[i]=temp
+		            break
+		nuts.sort()
+		bolts.sort()
+
