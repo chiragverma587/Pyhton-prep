@@ -226,9 +226,40 @@ class Solution:
                     res.append(C[i])
         return res
 
-### 13. 
+### 13. [Greater on right side](https://practice.geeksforgeeks.org/problems/greater-on-right-side4305/1)
+	class Solution:
 
+	def nextGreatest(self,arr, n):
+		# code  here
+		#for i in range(n-1):
+		#arr[i]=max(arr[i+1:n:1])
+		#arr[n-1]=-1
+		maxele=-1
+		for i in range(n-1,-1,-1):
+		    temp=arr[i]
+		    arr[i]=maxele
+		    maxele=max(maxele,temp)
+		    
+		    		    
 
+### 14. [Two numbers with odd occurrences](https://practice.geeksforgeeks.org/problems/two-numbers-with-odd-occurrences5846/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article)
+	class Solution:
+	    def twoOddNum(self, arr, n):
+		# code here
+		map={}
+		res=[]
+		for i in range(n):
+		    if arr[i] in map:
+			map[arr[i]]+=1
+		    else:
+			map[arr[i]]=1
+		for key in map:
+		    if map[key]%2!=0:
+			res.append(key)
+		res.sort(reverse=True)
+		return res
+		
+### 15. 
 
 
 
