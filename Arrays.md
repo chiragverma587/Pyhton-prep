@@ -259,7 +259,22 @@ class Solution:
 		res.sort(reverse=True)
 		return res
 		
-### 15. 
+### 15. [Subarray with given sum](https://practice.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article)
+	class Solution:
+	    def subArraySum(self,arr, n, s): 
+	       #Write your code here
+		res=[]
+		for i in range(n):
+		   summ=0
+
+		   for j in range(i,n):
+			summ=summ+arr[j]
+			if(summ==s):
+			   res.append(i+1)
+			   res.append(j+1)
+			   return res
+		res.append(-1)
+		return res
 
 
 
