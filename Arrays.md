@@ -208,4 +208,32 @@ class Solution:
 		            break
 		nuts.sort()
 		bolts.sort()
+### 12. [Common Elements](https://practice.geeksforgeeks.org/problems/common-elements1132/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article)
+	class Solution:
+    def commonElements (self,A, B, C, n1, n2, n3):
+        # your code here
+        res=[]
+        set1=set()
+        set2=set()
+        set3=set()
+        for i in range(n1):
+            set1.add(A[i])
+        for i in range(n2):
+            set2.add(B[i])
+        for i in range(n3):
+            if (C[i] in set1 and C[i] in set2):
+                if C[i] not in res:
+                    res.append(C[i])
+        return res
+
+### 13. 
+
+
+
+
+
+
+
+
+
 
